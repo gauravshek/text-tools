@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>GST Calculator – India (CGST / SGST / IGST)</title>
-  <meta name="description" content="Free GST calculator for India. Calculate GST inclusive or exclusive amounts with CGST, SGST and IGST breakup.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>GST Calculator India – Calculate CGST, SGST & IGST Online</title>
+  <meta name="description" content="Free GST calculator for India. Calculate GST inclusive or exclusive amounts with CGST, SGST, and IGST breakup instantly.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,7 +20,7 @@
 
     <nav class="nav-links">
       <a href="index.html">Home</a>
-      <a href="index.html">Word Counter</a>
+      <a href="word-counter.html">Word Counter</a>
       <a href="json-formatter.html">JSON Formatter</a>
       <a href="gst-calculator.html" class="active">GST Calculator</a>
       <a href="emi-calculator.html">EMI Calculator</a>
@@ -31,13 +32,16 @@
 
 <!-- HERO -->
 <section class="hero">
-  <h1>GST Calculator (India)</h1>
-  <p>Calculate GST with CGST, SGST or IGST breakup instantly.</p>
+  <h1>GST Calculator India</h1>
+  <p>
+    Calculate GST with complete CGST, SGST, or IGST breakup.
+    Supports inclusive and exclusive GST pricing.
+  </p>
 </section>
 
 <!-- TOOLS DASHBOARD -->
 <section class="tools-dashboard">
-  <a href="index.html" class="tool-box">
+  <a href="word-counter.html" class="tool-box">
     <span>📝</span>
     <h3>Word Counter</h3>
   </a>
@@ -58,12 +62,23 @@
   </a>
 </section>
 
-<!-- MAIN CONTENT -->
+<!-- SEO INTRO -->
+<section class="seo-intro">
+  <p class="seo-text">
+    This free GST calculator helps businesses, freelancers, and individuals
+    calculate Goods and Services Tax (GST) in India.
+    You can calculate GST inclusive or exclusive prices with detailed
+    CGST, SGST, or IGST tax breakup.
+    All calculations run locally in your browser.
+  </p>
+</section>
+
+<!-- TOOL -->
 <div class="container">
   <div class="tool-card">
 
-    <h2>GST Calculation Details</h2>
-    <p>Enter amount, select GST rate and type to see full tax breakup.</p>
+    <h2>GST Calculation Tool</h2>
+    <p>Enter amount, select GST rate and tax type to see the full GST breakdown.</p>
 
     <label>Enter Amount (₹)</label>
     <input type="number" id="amount" placeholder="Enter amount">
@@ -95,18 +110,45 @@
   </div>
 </div>
 
+<!-- SEO CONTENT -->
+<section class="seo-section">
+  <h2>What Is GST?</h2>
+  <p>
+    Goods and Services Tax (GST) is an indirect tax in India applied to the supply
+    of goods and services. It replaces multiple indirect taxes and simplifies
+    taxation across states.
+  </p>
+</section>
+
+<section class="seo-section">
+  <h2>Difference Between CGST, SGST and IGST</h2>
+  <ul>
+    <li><strong>CGST:</strong> Central GST collected by the central government</li>
+    <li><strong>SGST:</strong> State GST collected by the state government</li>
+    <li><strong>IGST:</strong> Integrated GST applied to inter-state transactions</li>
+  </ul>
+</section>
+
+<section class="seo-section">
+  <h2>Why Use This GST Calculator?</h2>
+  <ul>
+    <li>Instant and accurate GST calculations</li>
+    <li>Supports inclusive and exclusive GST pricing</li>
+    <li>Detailed CGST / SGST / IGST breakup</li>
+    <li>No login or data storage</li>
+    <li>Mobile and desktop friendly</li>
+  </ul>
+</section>
+
 <!-- FOOTER -->
 <footer class="site-footer">
-  <p>
-    © 2026 <strong>TextTools</strong> · Free Online Utilities
-  </p>
+  <p>© 2026 <strong>TextTools</strong> · Free Online Utilities</p>
   <div class="footer-links">
     <a href="privacy-policy.html">Privacy Policy</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </div>
 </footer>
-
 
 <!-- SCRIPT -->
 <script>
@@ -148,10 +190,10 @@ function calculateGST() {
     <p>Base Amount: <strong>₹${baseAmount.toFixed(2)}</strong></p>
 
     ${structure === "cgst_sgst" ? `
-      <p>CGST (₹): <strong>${cgst.toFixed(2)}</strong></p>
-      <p>SGST (₹): <strong>${sgst.toFixed(2)}</strong></p>
+      <p>CGST: <strong>₹${cgst.toFixed(2)}</strong></p>
+      <p>SGST: <strong>₹${sgst.toFixed(2)}</strong></p>
     ` : `
-      <p>IGST (₹): <strong>${igst.toFixed(2)}</strong></p>
+      <p>IGST: <strong>₹${igst.toFixed(2)}</strong></p>
     `}
 
     <p>Total GST: <strong>₹${gstAmount.toFixed(2)}</strong></p>

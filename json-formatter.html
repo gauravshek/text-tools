@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>JSON Formatter – Free Online Tool</title>
-    <meta name="description" content="Format and validate JSON instantly using this free online JSON formatter.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="style.css">
+  <title>JSON Formatter & Validator Online – Format JSON Free</title>
+  <meta name="description" content="Free online JSON formatter and validator. Beautify, format, and validate JSON instantly. Works in your browser with complete privacy.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -19,7 +20,7 @@
 
     <nav class="nav-links">
       <a href="index.html">Home</a>
-      <a href="index.html">Word Counter</a>
+      <a href="word-counter.html">Word Counter</a>
       <a href="json-formatter.html" class="active">JSON Formatter</a>
       <a href="gst-calculator.html">GST Calculator</a>
       <a href="emi-calculator.html">EMI Calculator</a>
@@ -31,13 +32,16 @@
 
 <!-- HERO -->
 <section class="hero">
-  <h1>JSON Formatter & Validator</h1>
-  <p>Paste JSON, format it instantly, and copy the result.</p>
+  <h1>JSON Formatter & Validator Online</h1>
+  <p>
+    Format, beautify, and validate JSON instantly.
+    No signup, no data storage, 100% browser-based.
+  </p>
 </section>
 
 <!-- TOOLS DASHBOARD -->
 <section class="tools-dashboard">
-  <a href="index.html" class="tool-box">
+  <a href="word-counter.html" class="tool-box">
     <span>📝</span>
     <h3>Word Counter</h3>
   </a>
@@ -58,20 +62,29 @@
   </a>
 </section>
 
-<!-- MAIN CONTENT -->
+<!-- SEO INTRO -->
+<section class="seo-intro">
+  <p class="seo-text">
+    This free JSON formatter helps developers format and validate JSON data online.
+    It automatically indents, beautifies, and checks JSON syntax errors in real time.
+    All processing happens locally in your browser, ensuring complete privacy.
+  </p>
+</section>
+
+<!-- TOOL -->
 <div class="container">
   <div class="tool-card">
 
     <h2>Format JSON Online</h2>
-    <p>Paste your JSON below and click format. Errors will be highlighted.</p>
+    <p>Paste your JSON below and click Format. Errors will be shown instantly.</p>
 
     <textarea
       id="jsonInput"
-      rows="14"
+      rows="16"
       placeholder='{\n  "name": "John",\n  "age": 30\n}'
     ></textarea>
 
-    <div>
+    <div class="button-group">
       <button onclick="formatJSON()">Format JSON</button>
       <button onclick="copyJSON()">Copy</button>
       <button onclick="clearJSON()">Clear</button>
@@ -82,11 +95,30 @@
   </div>
 </div>
 
+<!-- SEO CONTENT -->
+<section class="seo-section">
+  <h2>What Is a JSON Formatter?</h2>
+  <p>
+    A JSON formatter is a tool that converts raw or minified JSON into a readable,
+    structured format. It helps developers debug APIs, configuration files,
+    and data responses efficiently.
+  </p>
+</section>
+
+<section class="seo-section">
+  <h2>Why Use This JSON Formatter?</h2>
+  <ul>
+    <li>Instant JSON formatting and validation</li>
+    <li>Detects syntax errors automatically</li>
+    <li>Copy formatted JSON with one click</li>
+    <li>No server upload – 100% secure</li>
+    <li>Works on mobile and desktop</li>
+  </ul>
+</section>
+
 <!-- FOOTER -->
 <footer class="site-footer">
-  <p>
-    © 2026 <strong>TextTools</strong> · Free Online Utilities
-  </p>
+  <p>© 2026 <strong>TextTools</strong> · Free Online Utilities</p>
   <div class="footer-links">
     <a href="privacy-policy.html">Privacy Policy</a>
     <a href="about.html">About</a>
@@ -94,31 +126,30 @@
   </div>
 </footer>
 
-
 <!-- SCRIPT -->
 <script>
 function formatJSON() {
-    const textarea = document.getElementById("jsonInput");
-    const errorMsg = document.getElementById("errorMsg");
-    errorMsg.innerText = "";
+  const textarea = document.getElementById("jsonInput");
+  const errorMsg = document.getElementById("errorMsg");
+  errorMsg.innerText = "";
 
-    try {
-        const parsed = JSON.parse(textarea.value);
-        textarea.value = JSON.stringify(parsed, null, 4);
-    } catch (e) {
-        errorMsg.innerText = "❌ Invalid JSON. Please check your input.";
-    }
+  try {
+    const parsed = JSON.parse(textarea.value);
+    textarea.value = JSON.stringify(parsed, null, 4);
+  } catch (e) {
+    errorMsg.innerText = "❌ Invalid JSON. Please check your input.";
+  }
 }
 
 function copyJSON() {
-    const textarea = document.getElementById("jsonInput");
-    textarea.select();
-    document.execCommand("copy");
+  const textarea = document.getElementById("jsonInput");
+  textarea.select();
+  document.execCommand("copy");
 }
 
 function clearJSON() {
-    document.getElementById("jsonInput").value = "";
-    document.getElementById("errorMsg").innerText = "";
+  document.getElementById("jsonInput").value = "";
+  document.getElementById("errorMsg").innerText = "";
 }
 </script>
 

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Word Counter & Text Case Converter – Count Words Online Free</title>
+  <meta name="description" content="Free word counter tool to count words, characters, and spaces instantly. Convert text to uppercase, lowercase, sentence case, or capitalized case online.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <a href="index.html">TextTools</a>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="word-counter.html" class="active">Word Counter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="gst-calculator.html">GST Calculator</a>
+      <a href="emi-calculator.html">EMI Calculator</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="seo-intro">
+  <p class="seo-text">
+    This free word counter helps you count words, characters with spaces, and characters without spaces.
+    You can also convert text into uppercase, lowercase, sentence case, or capitalized case.
+    All processing happens locally in your browser for complete privacy.
+  </p>
+</section>
+
+
+<!-- TOOL -->
+<div class="container">
+  <div class="tool-card">
+
+    <p class="seo-text">
+      This free word counter helps you count words, characters with spaces, and characters without spaces.
+      You can also convert text into uppercase, lowercase, sentence case, or capitalized case.
+      All processing happens locally in your browser for complete privacy.
+    </p>
+
+    <textarea id="textInput" placeholder="Enter or paste your text here..."></textarea>
+
+    <div class="button-group">
+      <button onclick="toUpper()">UPPERCASE</button>
+      <button onclick="toLower()">lowercase</button>
+      <button onclick="toSentence()">Sentence Case</button>
+      <button onclick="toCapitalized()">Capitalized Case</button>
+      <button onclick="clearText()">Clear</button>
+    </div>
+
+    <div class="stats">
+      <p>Words: <strong><span id="wordCount">0</span></strong></p>
+      <p>Characters (with spaces): <strong><span id="charWithSpace">0</span></strong></p>
+      <p>Characters (without spaces): <strong><span id="charWithoutSpace">0</span></strong></p>
+    </div>
+
+  </div>
+</div>
+
+<section class="seo-section">
+  <h2>What Can This Tool Count?</h2>
+  <ul>
+    <li>Total word count</li>
+    <li>Characters with spaces</li>
+    <li>Characters without spaces</li>
+    <li>Text case conversion</li>
+  </ul>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>© 2026 <strong>TextTools</strong> · Free Online Utilities</p>
+  <div class="footer-links">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+const textInput = document.getElementById("textInput");
+const wordCount = document.getElementById("wordCount");
+const charWithSpace = document.getElementById("charWithSpace");
+const charWithoutSpace = document.getElementById("charWithoutSpace");
+
+textInput.addEventListener("input", updateStats);
+
+function updateStats() {
+  const text = textInput.value;
+  const trimmed = text.trim();
+  wordCount.innerText = trimmed ? trimmed.split(/\s+/).length : 0;
+  charWithSpace.innerText = text.length;
+  charWithoutSpace.innerText = text.replace(/\s/g, "").length;
+}
+
+function toUpper() {
+  textInput.value = textInput.value.toUpperCase();
+  updateStats();
+}
+
+function toLower() {
+  textInput.value = textInput.value.toLowerCase();
+  updateStats();
+}
+
+function toSentence() {
+  let text = textInput.value.toLowerCase();
+  textInput.value = text.replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase());
+  updateStats();
+}
+
+function toCapitalized() {
+  let text = textInput.value.toLowerCase();
+  textInput.value = text.replace(/\b\w/g, c => c.toUpperCase());
+  updateStats();
+}
+
+function clearText() {
+  textInput.value = "";
+  updateStats();
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Is this word counter free?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, this word counter is completely free and works directly in your browser."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is my text stored?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. All text is processed locally and never sent to any server."
+    }
+  }]
+}
+</script>
+
+</body>
+</html>

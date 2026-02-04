@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Text Case Converter & Word Counter – Free Online Tool</title>
-    <meta name="description" content="Free online text case converter and word counter. Count words, characters, and convert text instantly.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Free Online Calculators & Text Tools – Word Counter, JSON, GST, EMI</title>
+  <meta name="description" content="Free online calculators and text tools including Word Counter, Text Case Converter, JSON Formatter, GST Calculator, and EMI Calculator. Fast, simple, and privacy-friendly tools in one place.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -19,7 +18,7 @@
 
     <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
-      <a href="index.html">Word Counter</a>
+      <a href="word-counter.html">Word Counter</a>
       <a href="json-formatter.html">JSON Formatter</a>
       <a href="gst-calculator.html">GST Calculator</a>
       <a href="emi-calculator.html">EMI Calculator</a>
@@ -31,117 +30,79 @@
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Simple, Fast & Free Online Text Tools</h1>
-  <p>Word Counter, Case Converter, JSON Formatter, GST & EMI Calculator – all in one place.</p>
+  <h1>Free Online Calculators & Text Tools</h1>
+  <p>
+    Word Counter, Text Case Converter, JSON Formatter, GST Calculator and EMI Calculator —
+    fast, simple, and privacy-friendly tools.
+  </p>
 </section>
 
+<!-- DASHBOARD -->
 <section class="tools-dashboard">
-  <a href="index.html" class="tool-box active">
+  <a href="word-counter.html" class="tool-box">
     <span>📝</span>
     <h3>Word Counter</h3>
+    <p>Count words & characters instantly</p>
   </a>
 
   <a href="json-formatter.html" class="tool-box">
     <span>🔧</span>
     <h3>JSON Formatter</h3>
+    <p>Format & validate JSON online</p>
   </a>
 
   <a href="gst-calculator.html" class="tool-box">
     <span>💰</span>
     <h3>GST Calculator</h3>
+    <p>Calculate GST for India</p>
   </a>
 
   <a href="emi-calculator.html" class="tool-box">
     <span>🏦</span>
     <h3>EMI Calculator</h3>
+    <p>Loan EMI & interest calculator</p>
   </a>
 </section>
 
+<!-- SEO INTRO -->
+<section class="seo-intro">
+  <p class="seo-text">
+    TextTools is a free online platform offering essential calculators and text utilities
+    used by students, developers, professionals, and businesses.
+    All tools work entirely in your browser without storing or tracking any user data.
+  </p>
+</section>
 
-<!-- MAIN CONTENT -->
-<div class="container">
-  <div class="tool-card">
+<!-- SEO CONTENT -->
+<section class="seo-section">
+  <h2>Why Use TextTools?</h2>
+  <ul>
+    <li>100% free online calculators and text tools</li>
+    <li>No login or registration required</li>
+    <li>Instant results with real-time calculations</li>
+    <li>Privacy-friendly – no data stored or shared</li>
+    <li>Works on mobile, tablet, and desktop</li>
+  </ul>
+</section>
 
-    <h2>Text Case Converter & Word Counter</h2>
-    <p>Paste your text below. Convert case and count words instantly.</p>
-
-    <textarea id="textInput" placeholder="Enter or paste your text here..."></textarea>
-
-    <div>
-      <button onclick="toUpper()">UPPERCASE</button>
-      <button onclick="toLower()">lowercase</button>
-      <button onclick="toSentence()">Sentence Case</button>
-      <button onclick="toCapitalized()">Capitalized Case</button>
-      <button onclick="clearText()">Clear</button>
-    </div>
-
-    <div class="stats">
-      <p>Words: <span id="wordCount">0</span></p>
-      <p>Characters (with spaces): <span id="charWithSpace">0</span></p>
-      <p>Characters (without spaces): <span id="charWithoutSpace">0</span></p>
-    </div>
-
-  </div>
-</div>
+<section class="seo-section">
+  <h2>Tools Available on This Website</h2>
+  <p>
+    Our collection includes a word counter and text case converter for writing needs,
+    a JSON formatter for developers, a GST calculator for Indian tax calculations,
+    and an EMI calculator to estimate loan repayments and interest.
+  </p>
+</section>
 
 <!-- FOOTER -->
 <footer class="site-footer">
-  <p>
-    © 2026 <strong>TextTools</strong> · Free Online Utilities
-  </p>
+  <p>© 2026 <strong>TextTools</strong> · Free Online Utilities</p>
   <div class="footer-links">
     <a href="privacy-policy.html">Privacy Policy</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </div>
 </footer>
-
-
-<!-- SCRIPT -->
-<script>
-const textInput = document.getElementById("textInput");
-const wordCount = document.getElementById("wordCount");
-const charWithSpace = document.getElementById("charWithSpace");
-const charWithoutSpace = document.getElementById("charWithoutSpace");
-
-textInput.addEventListener("input", updateStats);
-
-function updateStats() {
-    const text = textInput.value;
-    const trimmed = text.trim();
-
-    wordCount.innerText = trimmed ? trimmed.split(/\s+/).length : 0;
-    charWithSpace.innerText = text.length;
-    charWithoutSpace.innerText = text.replace(/\s/g, "").length;
-}
-
-function toUpper() {
-    textInput.value = textInput.value.toUpperCase();
-    updateStats();
-}
-
-function toLower() {
-    textInput.value = textInput.value.toLowerCase();
-    updateStats();
-}
-
-function toSentence() {
-    let text = textInput.value.toLowerCase();
-    textInput.value = text.replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase());
-    updateStats();
-}
-
-function toCapitalized() {
-    let text = textInput.value.toLowerCase();
-    textInput.value = text.replace(/\b\w/g, c => c.toUpperCase());
-    updateStats();
-}
-
-function clearText() {
-    textInput.value = "";
-    updateStats();
-}
-</script>
 
 </body>
 </html>

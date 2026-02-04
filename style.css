@@ -305,3 +305,35 @@ footer {
 .site-footer a:hover {
   text-decoration: underline;
 }
+
+.seo-intro {
+  max-width: 900px;
+  margin: 30px auto 10px;
+  padding: 0 15px;
+}
+
+.seo-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+}
+.seo-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 15px;
+}
+
+.seo-section h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: #5b2ddb; /* matches modern SaaS look */
+}
+
+.seo-section ul {
+  padding-left: 20px;
+}
+
+.seo-section li {
+  margin-bottom: 6px;
+  color: #444;
+}
