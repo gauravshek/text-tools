@@ -6,44 +6,106 @@
     <meta name="description" content="Format and validate JSON instantly using this free online JSON formatter.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-    <h1>JSON Formatter</h1>
-    <p>Paste your JSON below and format it instantly.</p>
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <a href="index.html">TextTools</a>
+    </div>
 
-    <textarea id="jsonInput" placeholder='{"name":"John","age":30}'></textarea>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html">Word Counter</a>
+      <a href="json-formatter.html" class="active">JSON Formatter</a>
+      <a href="gst-calculator.html">GST Calculator</a>
+      <a href="emi-calculator.html">EMI Calculator</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>JSON Formatter & Validator</h1>
+  <p>Paste JSON, format it instantly, and copy the result.</p>
+</section>
+
+<!-- TOOLS DASHBOARD -->
+<section class="tools-dashboard">
+  <a href="index.html" class="tool-box">
+    <span>📝</span>
+    <h3>Word Counter</h3>
+  </a>
+
+  <a href="json-formatter.html" class="tool-box active">
+    <span>🔧</span>
+    <h3>JSON Formatter</h3>
+  </a>
+
+  <a href="gst-calculator.html" class="tool-box">
+    <span>💰</span>
+    <h3>GST Calculator</h3>
+  </a>
+
+  <a href="emi-calculator.html" class="tool-box">
+    <span>🏦</span>
+    <h3>EMI Calculator</h3>
+  </a>
+</section>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+  <div class="tool-card">
+
+    <h2>Format JSON Online</h2>
+    <p>Paste your JSON below and click format. Errors will be highlighted.</p>
+
+    <textarea
+      id="jsonInput"
+      rows="14"
+      placeholder='{\n  "name": "John",\n  "age": 30\n}'
+    ></textarea>
 
     <div>
-        <button onclick="formatJSON()">Format JSON</button>
-        <button onclick="clearJSON()">Clear</button>
+      <button onclick="formatJSON()">Format JSON</button>
+      <button onclick="copyJSON()">Copy</button>
+      <button onclick="clearJSON()">Clear</button>
     </div>
 
     <p class="error" id="errorMsg"></p>
 
-    <footer>
-        <a href="index.html">Text Tools</a>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </footer>
+  </div>
 </div>
 
+<!-- FOOTER -->
+<footer>
+  © 2026 TextTools · Free Online Utilities
+</footer>
+
+<!-- SCRIPT -->
 <script>
 function formatJSON() {
-    const input = document.getElementById("jsonInput").value;
+    const textarea = document.getElementById("jsonInput");
     const errorMsg = document.getElementById("errorMsg");
     errorMsg.innerText = "";
 
     try {
-        const parsed = JSON.parse(input);
-        document.getElementById("jsonInput").value =
-            JSON.stringify(parsed, null, 4);
+        const parsed = JSON.parse(textarea.value);
+        textarea.value = JSON.stringify(parsed, null, 4);
     } catch (e) {
-        errorMsg.innerText = "Invalid JSON. Please check your input.";
+        errorMsg.innerText = "❌ Invalid JSON. Please check your input.";
     }
+}
+
+function copyJSON() {
+    const textarea = document.getElementById("jsonInput");
+    textarea.select();
+    document.execCommand("copy");
 }
 
 function clearJSON() {

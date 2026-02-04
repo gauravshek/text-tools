@@ -1,18 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>EMI Calculator – Loan EMI Online</title>
-    <meta name="description" content="Free EMI calculator. Calculate monthly loan EMI, total interest, and total payment easily.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>EMI Calculator – Loan EMI Calculator Online</title>
+  <meta name="description" content="Free EMI calculator. Calculate loan EMI, interest payable, and total payment instantly.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <a href="index.html">TextTools</a>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html">Word Counter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="gst-calculator.html">GST Calculator</a>
+      <a href="emi-calculator.html" class="active">EMI Calculator</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>EMI Calculator</h1>
+  <p>Calculate loan EMI, interest, and total payable amount easily.</p>
+</section>
+
+<!-- TOOLS DASHBOARD -->
+<section class="tools-dashboard">
+  <a href="index.html" class="tool-box">
+    <span>📝</span>
+    <h3>Word Counter</h3>
+  </a>
+
+  <a href="json-formatter.html" class="tool-box">
+    <span>🔧</span>
+    <h3>JSON Formatter</h3>
+  </a>
+
+  <a href="gst-calculator.html" class="tool-box">
+    <span>💰</span>
+    <h3>GST Calculator</h3>
+  </a>
+
+  <a href="emi-calculator.html" class="tool-box active">
+    <span>🏦</span>
+    <h3>EMI Calculator</h3>
+  </a>
+</section>
+
+<!-- MAIN -->
 <div class="container">
-    <h1>EMI Calculator</h1>
-    <p>Calculate your monthly EMI, total interest, and total payment.</p>
+  <div class="tool-card">
+
+    <h2>Loan Details</h2>
+    <p>Enter loan amount, interest rate and tenure.</p>
 
     <label>Loan Amount (₹)</label>
     <input type="number" id="loanAmount" placeholder="e.g. 500000">
@@ -20,37 +71,57 @@
     <label>Annual Interest Rate (%)</label>
     <input type="number" id="interestRate" placeholder="e.g. 10">
 
-    <label>Loan Tenure (Years)</label>
-    <input type="number" id="loanTenure" placeholder="e.g. 5">
+    <label>Loan Tenure</label>
+    <div class="tenure-row">
+      <input type="number" id="loanTenure" placeholder="e.g. 5">
+      <select id="tenureType">
+        <option value="years">Years</option>
+        <option value="months">Months</option>
+      </select>
+    </div>
 
     <button onclick="calculateEMI()">Calculate EMI</button>
 
     <div class="result" id="result"></div>
 
-    <footer>
-        <a href="index.html">Text Tools</a>
-        <a href="json-formatter.html">JSON Formatter</a>
-        <a href="gst-calculator.html">GST Calculator</a>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </footer>
+  </div>
 </div>
 
+<!-- FOOTER -->
+<footer>
+  © 2026 TextTools · Free Financial Calculators
+</footer>
+
+<!-- SCRIPT -->
 <script>
 function calculateEMI() {
-    const P = parseFloat(document.getElementById("loanAmount").value);
-    const annualRate = parseFloat(document.getElementById("interestRate").value);
-    const years = parseFloat(document.getElementById("loanTenure").value);
-    const resultDiv = document.getElementById("result");
+  const P = parseFloat(document.getElementById("loanAmount").value);
+  const annualRate = parseFloat(document.getElementById("interestRate").value);
+  const tenureValue = parseFloat(document.getElementById("loanTenure").value);
+  const tenureType = document.getElementById("tenureType").value;
+  const result = document.getElementById("result");
 
-    if (isNaN(P) || isNaN(annualRate) || isNaN(years) || P <= 0 || annualRate <= 0 || years <= 0) {
-        resultDiv.innerHTML = "Please enter valid values.";
-        return;
-    }
+  if (isNaN(P) || isNaN(annualRate) || isNaN(tenureValue) || P <= 0 || annualRate <= 0 || tenureValue <= 0) {
+    result.innerHTML = "<p class='error'>Please enter valid loan details.</p>";
+    return;
+  }
 
-    const r = annualRate / 12 / 100;
-    const n = years * 12;
+  const r = annualRate / 12 / 100;
+  const n = tenureType === "years" ? tenureValue * 12 : tenureValue;
 
-    const emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-    const
+  const emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+  const totalPayment = emi * n;
+  const totalInterest = totalPayment - P;
+
+  result.innerHTML = `
+    <h3>EMI Details</h3>
+    <p>Monthly EMI: <strong>₹${emi.toFixed(2)}</strong></p>
+    <p>Total Interest: <strong>₹${totalInterest.toFixed(2)}</strong></p>
+    <hr>
+    <p>Total Amount Payable: <strong>₹${totalPayment.toFixed(2)}</strong></p>
+  `;
+}
+</script>
+
+</body>
+</html>

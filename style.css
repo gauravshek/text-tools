@@ -107,6 +107,12 @@ body {
   padding: 30px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
+.tool-card h2 {
+  color: var(--primary);
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
 
 /* =====================
    HEADINGS & TEXT
@@ -151,11 +157,22 @@ button {
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
+  font-weight: 500;
 }
 
 button:hover {
   background: var(--secondary);
 }
+
+button:last-child {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+button:last-child:hover {
+  background: #d1d5db;
+}
+
 
 /* =====================
    STATS / RESULTS
@@ -185,4 +202,50 @@ footer {
 .error {
   color: #dc2626;
   margin-top: 10px;
+}
+
+/* =====================
+   TOOLS DASHBOARD
+===================== */
+.tools-dashboard {
+  max-width: 1100px;
+  margin: 20px auto 40px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+}
+
+.tool-box {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 22px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-top: 4px solid var(--secondary);
+}
+
+.tool-box span {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.tool-box h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.tool-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+
+.tool-box.active {
+  border-top-color: var(--accent);
+  background: #fefce8;
 }
