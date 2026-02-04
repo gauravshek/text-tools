@@ -280,3 +280,28 @@ footer {
   line-height: 1.7;
   color: #374151;
 }
+
+.site-footer {
+  margin-top: 50px;
+  padding: 25px 20px;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.site-footer .footer-links {
+  margin-top: 8px;
+}
+
+.site-footer a {
+  margin: 0 10px;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
