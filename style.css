@@ -1,84 +1,37 @@
-/* ===== Base Reset ===== */
+/* =====================
+   THEME VARIABLES
+===================== */
+:root {
+  --primary: #0f766e;      /* green-blue */
+  --secondary: #0284c7;    /* blue */
+  --accent: #fde047;      /* soft yellow */
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --border: #e5e7eb;
+}
+
+/* =====================
+   BASE RESET
+===================== */
 * {
-    box-sizing: border-box;
-}
-/* ===== Layout ===== */
-
-/* ===== Headings ===== */
-h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-p {
-    margin-bottom: 15px;
-    color: #374151;
-}
-
-/* ===== Inputs ===== */
-textarea,
-input,
-select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 8px;
-    margin-bottom: 12px;
-    font-size: 15px;
-    border-radius: 6px;
-    border: 1px solid #d1d5db;
-}
-
-textarea {
-    font-family: monospace;
-}
-
-/* ===== Buttons ===== */
-
-
-/* ===== Result / Stats ===== */
-.stats,
-.result {
-    background: #f1f5f9;
-    padding: 14px;
-    border-radius: 6px;
-    margin-top: 15px;
-}
-
-/* ===== Footer ===== */
-footer {
-    margin-top: 30px;
-    padding-top: 15px;
-    border-top: 1px solid #e5e7eb;
-    font-size: 14px;
-}
-
-footer a {
-    margin-right: 12px;
-    color: #2563eb;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* ===== Error Text ===== */
-.error {
-    color: #dc2626;
-    margin-top: 10px;
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-  background: #f5f7fb;
-  color: #1f2937;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
 }
 
-/* Navbar */
+/* =====================
+   NAVBAR
+===================== */
 .navbar {
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -96,7 +49,7 @@ body {
 .logo a {
   font-size: 20px;
   font-weight: 700;
-  color: #2563eb;
+  color: var(--primary);
   text-decoration: none;
 }
 
@@ -109,14 +62,20 @@ body {
 
 .nav-links a:hover,
 .nav-links .active {
-  color: #2563eb;
+  color: var(--secondary);
 }
 
-/* Hero */
+/* =====================
+   HERO
+===================== */
 .hero {
   text-align: center;
-  padding: 60px 20px 40px;
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  padding: 60px 20px 50px;
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+  );
   color: white;
 }
 
@@ -130,24 +89,61 @@ body {
   opacity: 0.95;
 }
 
-/* Main container */
+/* =====================
+   MAIN CONTAINER
+===================== */
 .container {
   max-width: 900px;
   margin: -30px auto 60px;
   padding: 0 20px;
 }
 
-/* Tool card */
+/* =====================
+   TOOL CARD
+===================== */
 .tool-card {
-  background: white;
+  background: var(--card);
   border-radius: 12px;
   padding: 30px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-/* Buttons */
+/* =====================
+   HEADINGS & TEXT
+===================== */
+h1, h2 {
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 15px;
+  color: #374151;
+}
+
+/* =====================
+   INPUTS
+===================== */
+textarea,
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+textarea {
+  font-family: monospace;
+}
+
+/* =====================
+   BUTTONS
+===================== */
 button {
-  background: #2563eb;
+  background: var(--primary);
   color: white;
   border: none;
   padding: 10px 18px;
@@ -158,13 +154,35 @@ button {
 }
 
 button:hover {
-  background: #1e40af;
+  background: var(--secondary);
 }
 
-/* Footer */
+/* =====================
+   STATS / RESULTS
+===================== */
+.stats,
+.result {
+  background: #f1f5f9;
+  padding: 14px;
+  border-radius: 6px;
+  margin-top: 15px;
+}
+
+/* =====================
+   FOOTER
+===================== */
 footer {
   text-align: center;
   padding: 20px;
+  border-top: 1px solid var(--border);
   color: #6b7280;
   font-size: 14px;
+}
+
+/* =====================
+   ERROR TEXT
+===================== */
+.error {
+  color: #dc2626;
+  margin-top: 10px;
 }

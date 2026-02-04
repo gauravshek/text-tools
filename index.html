@@ -10,34 +10,63 @@
 </head>
 <body>
 
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <a href="index.html">TextTools</a>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="index.html">Word Counter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="gst-calculator.html">GST Calculator</a>
+      <a href="emi-calculator.html">EMI Calculator</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Simple, Fast & Free Online Text Tools</h1>
+  <p>Word Counter, Case Converter, JSON Formatter, GST & EMI Calculator – all in one place.</p>
+</section>
+
+<!-- MAIN CONTENT -->
 <div class="container">
-    <div class="tool-card"></div>
-    <h1>Text Case Converter & Word Counter</h1>
+  <div class="tool-card">
+
+    <h2>Text Case Converter & Word Counter</h2>
     <p>Paste your text below. Convert case and count words instantly.</p>
 
     <textarea id="textInput" placeholder="Enter or paste your text here..."></textarea>
 
     <div>
-        <button onclick="toUpper()">UPPERCASE</button>
-        <button onclick="toLower()">lowercase</button>
-        <button onclick="toSentence()">Sentence Case</button>
-        <button onclick="toCapitalized()">Capitalized Case</button>
-        <button onclick="clearText()">Clear</button>
+      <button onclick="toUpper()">UPPERCASE</button>
+      <button onclick="toLower()">lowercase</button>
+      <button onclick="toSentence()">Sentence Case</button>
+      <button onclick="toCapitalized()">Capitalized Case</button>
+      <button onclick="clearText()">Clear</button>
     </div>
 
     <div class="stats">
-        <p>Words: <span id="wordCount">0</span></p>
-        <p>Characters (with spaces): <span id="charWithSpace">0</span></p>
-        <p>Characters (without spaces): <span id="charWithoutSpace">0</span></p>
+      <p>Words: <span id="wordCount">0</span></p>
+      <p>Characters (with spaces): <span id="charWithSpace">0</span></p>
+      <p>Characters (without spaces): <span id="charWithoutSpace">0</span></p>
     </div>
 
-    <footer>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
   © 2026 TextTools · Free Online Utilities
 </footer>
 
-    </div>
-</div>
-
+<!-- SCRIPT -->
 <script>
 const textInput = document.getElementById("textInput");
 const wordCount = document.getElementById("wordCount");
@@ -84,26 +113,4 @@ function clearText() {
 </script>
 
 </body>
-<header class="navbar">
-  <div class="nav-container">
-    <div class="logo">
-      <a href="index.html">TextTools</a>
-    </div>
-
-    <nav class="nav-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="index.html">Word Counter</a>
-      <a href="json-formatter.html">JSON Formatter</a>
-      <a href="gst-calculator.html">GST Calculator</a>
-      <a href="emi-calculator.html">EMI Calculator</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-<section class="hero">
-  <h1>Simple, Fast & Free Online Text Tools</h1>
-  <p>Word Counter, Case Converter, JSON Formatter, GST & EMI Calculator – all in one place.</p>
-</section>
-
 </html>
