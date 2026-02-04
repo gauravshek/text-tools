@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Formatter – Free Online Tool</title>
+    <meta name="description" content="Format and validate JSON instantly using this free online JSON formatter.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            background: #fff;
+            padding: 20px;
+            margin: auto;
+            border-radius: 8px;
+        }
+        textarea {
+            width: 100%;
+            height: 220px;
+            padding: 10px;
+            font-size: 15px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+        }
+        footer a {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>JSON Formatter</h1>
+    <p>Paste your JSON below and format it instantly.</p>
+
+    <textarea id="jsonInput" placeholder='{"name":"John","age":30}'></textarea>
+
+    <div>
+        <button onclick="formatJSON()">Format JSON</button>
+        <button onclick="clearJSON()">Clear</button>
+    </div>
+
+    <p class="error" id="errorMsg"></p>
+
+    <footer>
+        <a href="index.html">Text Tools</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </footer>
+</div>
+
+<script>
+function formatJSON() {
+    const input = document.getElementById("jsonInput").value;
+    const errorMsg = document.getElementById("errorMsg");
+    errorMsg.innerText = "";
+
+    try {
+        const parsed = JSON.parse(input);
+        document.getElementById("jsonInput").value =
+            JSON.stringify(parsed, null, 4);
+    } catch (e) {
+        errorMsg.innerText = "Invalid JSON. Please check your input.";
+    }
+}
+
+function clearJSON() {
+    document.getElementById("jsonInput").value = "";
+    document.getElementById("errorMsg").innerText = "";
+}
+</script>
+
+</body>
+</html>
