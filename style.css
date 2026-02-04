@@ -1,0 +1,99 @@
+/* ===== Base Reset ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #f8fafc;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+/* ===== Layout ===== */
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Headings ===== */
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+    color: #374151;
+}
+
+/* ===== Inputs ===== */
+textarea,
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+}
+
+textarea {
+    font-family: monospace;
+}
+
+/* ===== Buttons ===== */
+button {
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 10px 16px;
+    margin: 5px 5px 5px 0;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+/* ===== Result / Stats ===== */
+.stats,
+.result {
+    background: #f1f5f9;
+    padding: 14px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+/* ===== Footer ===== */
+footer {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+footer a {
+    margin-right: 12px;
+    color: #2563eb;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Error Text ===== */
+.error {
+    color: #dc2626;
+    margin-top: 10px;
+}
