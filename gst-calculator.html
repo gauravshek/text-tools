@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GST Calculator – India</title>
+    <meta name="description" content="Free GST calculator for India. Calculate GST amount and final price instantly.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            background: #fff;
+            padding: 20px;
+            margin: auto;
+            border-radius: 8px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+        }
+        footer a {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>GST Calculator (India)</h1>
+    <p>Calculate GST amount and final price easily.</p>
+
+    <label>Enter Amount (₹)</label>
+    <input type="number" id="amount" placeholder="Enter amount">
+
+    <label>Select GST Rate</label>
+    <select id="gstRate">
+        <option value="5">5%</option>
+        <option value="12">12%</option>
+        <option value="18">18%</option>
+        <option value="28">28%</option>
+    </select>
+
+    <label>GST Type</label>
+    <select id="gstType">
+        <option value="exclusive">GST Exclusive</option>
+        <option value="inclusive">GST Inclusive</option>
+    </select>
+
+    <button onclick="calculateGST()">Calculate</button>
+
+    <div class="result" id="result"></div>
+
+    <footer>
+        <a href="index.html">Text Tools</a>
+        <a href="json-formatter.html">JSON Formatter</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </footer>
+</div>
+
+<script>
+function calculateGST() {
+    const amount = parseFloat(document.getElementById("amount").value);
+    const rate = parseFloat(document.getElementById("gstRate").value);
+    const type = document.getElementById("gstType").value;
+    const resultDiv = document.getElementById("result");
+
+    if (isNaN(amount) || amount <= 0) {
+        resultDiv.innerHTML = "Please enter a valid amount.";
+        return;
+    }
+
+    let gstAmount, finalAmount;
+
+    if (type === "exclusive") {
+        gstAmount = (amount * rate) / 100;
+        finalAmount = amount + gstAmount;
+    } else {
+        gstAmount = amount - (amount * (100 / (100 + rate)));
+        finalAmount = amount;
+    }
+
+    resultDiv.innerHTML = `
+        <p>GST Amount: <strong>₹${gstAmount.toFixed(2)}</strong></p>
+        <p>Final Amount: <strong>₹${finalAmount.toFixed(2)}</strong></p>
+    `;
+}
+</script>
+
+</body>
+</html>
