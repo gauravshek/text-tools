@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/style.css">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
-<body>
+<body class="home-page">
 
 <!-- NAVBAR -->
 <header class="navbar">
@@ -95,15 +95,72 @@
   </p>
 </section>
 
+<section class="reviews">
+  <h2>What people say</h2>
+
+  <div class="review-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“Clean, fast and exactly what I need daily. Amazing tools!”</p>
+      <span>— Pavithra Sonawale</span>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“Best calculator site. JSON, GST, Word Counter — all in one.”</p>
+      <span>— Imad khan</span>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“No ads overload, no login. Just works. Love it.”</p>
+      <span>— Thomas Hamberg</span>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“Finally a utility site that respects privacy.”</p>
+      <span>— David</span>
+    </div>
+  </div>
+</section>
+
+
+<section class="contact-ui">
+  <h2>Contact us</h2>
+  <p>Have a feature request or found a bug? Let us know.</p>
+
+  <form class="contact-form">
+    <div class="form-row">
+      <input type="text" placeholder="Your name" required>
+      <input type="email" placeholder="you@example.com" required>
+    </div>
+
+    <textarea rows="4" placeholder="How can we help?" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
 <!-- FOOTER -->
-<footer class="site-footer">
-  <p>© 2026 <strong>calculate-all</strong> · Free Online Utilities</p>
+<footer class="site-footer modern-footer">
+  <div class="footer-top">
+    <strong>calculate-all</strong>
+    <p>Free online calculators & text utilities. Fast. Private. Simple.</p>
+  </div>
+
   <div class="footer-links">
     <a href="/privacy-policy/">Privacy Policy</a>
+    <a href="/terms/">Terms</a>
     <a href="/about/">About</a>
-    <a href="contact/">Contact</a>
+    <a href="/contact/">Contact</a>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 calculate-all · All rights reserved
   </div>
 </footer>
+
 
 </body>
 </html>
