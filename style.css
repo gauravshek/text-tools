@@ -11,7 +11,7 @@
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.25); /* darkness control */
+  background: rgba(255, 255, 255, 0.75);
   z-index: -1;
 }
 
@@ -148,7 +148,9 @@ h1, h2 {
 
 p {
   margin-bottom: 15px;
-  color: #040404;
+  color: #030303;
+  font-variant-caps: petite-caps;
+  font-weight: bold;
 }
 
 /* =====================
