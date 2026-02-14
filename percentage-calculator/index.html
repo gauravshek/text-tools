@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Percentage Calculator – Calculate Percentage Easily</title>
+<meta name="description" content="Free online Percentage Calculator. Calculate percentage increase, decrease, and percentage value instantly.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/favicon.ico">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo"><a href="/">calculate-all</a></div>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Percentage Calculator</h1>
+  <p>Calculate percentage value quickly and accurately.</p>
+</section>
+
+<div class="container">
+  <div class="tool-card">
+
+    <label>What is</label>
+    <input type="number" id="percent">
+
+    <label>% of</label>
+    <input type="number" id="number">
+
+    <button onclick="calculatePercentage()">Calculate</button>
+
+    <div class="result" id="result"></div>
+    <div class="error" id="error"></div>
+
+  </div>
+</div>
+
+<section class="seo-section">
+<h2>How Percentage is Calculated</h2>
+<p>Percentage is calculated using the formula: (percentage × number) / 100.</p>
+</section>
+
+<footer class="site-footer modern-footer">
+  <div class="footer-top">
+    <strong>calculate-all</strong>
+    <p>Free online calculators & text utilities.</p>
+  </div>
+</footer>
+
+<script>
+function calculatePercentage() {
+  const percent = parseFloat(document.getElementById("percent").value);
+  const number = parseFloat(document.getElementById("number").value);
+  const result = document.getElementById("result");
+  const error = document.getElementById("error");
+
+  result.innerHTML = "";
+  error.innerHTML = "";
+
+  if (isNaN(percent) || isNaN(number)) {
+    error.innerHTML = "Please enter valid numbers.";
+    return;
+  }
+
+  const value = (percent * number) / 100;
+  result.innerHTML = `<strong>Result:</strong><br><br>${value}`;
+}
+</script>
+
+</body>
+</html>

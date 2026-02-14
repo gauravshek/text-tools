@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mortgage Calculator – Calculate Monthly Home Loan Payment</title>
+  <meta name="description" content="Free Mortgage Calculator to calculate monthly home loan payments with interest. Fast, accurate and mobile-friendly tool.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <a href="/">calculate-all</a>
+    </div>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Mortgage Calculator</h1>
+  <p>Calculate your monthly mortgage payment instantly.</p>
+</section>
+
+<div class="container">
+  <div class="tool-card">
+
+    <label>Loan Amount</label>
+    <input type="number" id="loanAmount" placeholder="Enter loan amount">
+
+    <label>Interest Rate (%)</label>
+    <input type="number" id="interestRate" placeholder="Annual interest rate">
+
+    <label>Loan Term (Years)</label>
+    <input type="number" id="loanTerm" placeholder="Loan term in years">
+
+    <button onclick="calculateMortgage()">Calculate Mortgage</button>
+
+    <div class="result" id="result"></div>
+    <div class="error" id="error"></div>
+
+  </div>
+</div>
+
+<section class="seo-section">
+  <h2>How Mortgage Calculation Works</h2>
+  <p>
+    This mortgage calculator uses the standard loan amortization formula to calculate
+    your fixed monthly payment based on loan amount, interest rate, and loan duration.
+    All calculations are done instantly in your browser.
+  </p>
+</section>
+
+<footer class="site-footer modern-footer">
+  <div class="footer-top">
+    <strong>calculate-all</strong>
+    <p>Free online calculators & text utilities. Fast. Private. Simple.</p>
+  </div>
+  <div class="footer-links">
+    <a href="/privacy-policy/">Privacy Policy</a>
+    <a href="/terms/">Terms</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <div class="footer-bottom">
+    © 2026 calculate-all · All rights reserved
+  </div>
+</footer>
+
+<script>
+function calculateMortgage() {
+  const loan = parseFloat(document.getElementById("loanAmount").value);
+  const rate = parseFloat(document.getElementById("interestRate").value);
+  const years = parseFloat(document.getElementById("loanTerm").value);
+
+  const result = document.getElementById("result");
+  const error = document.getElementById("error");
+
+  result.innerHTML = "";
+  error.innerHTML = "";
+
+  if (!loan || !rate || !years) {
+    error.innerHTML = "Please fill all fields.";
+    return;
+  }
+
+  const monthlyRate = rate / 100 / 12;
+  const months = years * 12;
+
+  const emi = (loan * monthlyRate * Math.pow(1 + monthlyRate, months)) /
+              (Math.pow(1 + monthlyRate, months) - 1);
+
+  result.innerHTML = `
+    <strong>Monthly Payment:</strong><br><br>
+    ${emi.toFixed(2)}
+  `;
+}
+</script>
+
+</body>
+</html>

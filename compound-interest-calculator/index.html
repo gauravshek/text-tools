@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Compound Interest Calculator – Calculate Investment Growth</title>
+<meta name="description" content="Free Compound Interest Calculator to calculate investment growth with compounding.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/favicon.ico">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo"><a href="/">calculate-all</a></div>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Compound Interest Calculator</h1>
+  <p>Calculate future value of your investment.</p>
+</section>
+
+<div class="container">
+  <div class="tool-card">
+
+    <label>Principal Amount</label>
+    <input type="number" id="principal">
+
+    <label>Annual Interest Rate (%)</label>
+    <input type="number" id="rate">
+
+    <label>Time (Years)</label>
+    <input type="number" id="time">
+
+    <button onclick="calculateCI()">Calculate</button>
+
+    <div class="result" id="result"></div>
+    <div class="error" id="error"></div>
+
+  </div>
+</div>
+
+<script>
+function calculateCI() {
+  const p = parseFloat(document.getElementById("principal").value);
+  const r = parseFloat(document.getElementById("rate").value) / 100;
+  const t = parseFloat(document.getElementById("time").value);
+  const result = document.getElementById("result");
+  const error = document.getElementById("error");
+
+  result.innerHTML = "";
+  error.innerHTML = "";
+
+  if (!p || !r || !t) {
+    error.innerHTML = "Please fill all fields.";
+    return;
+  }
+
+  const amount = p * Math.pow((1 + r), t);
+  result.innerHTML = `<strong>Total Amount:</strong><br><br>${amount.toFixed(2)}`;
+}
+</script>
+
+</body>
+</html>
