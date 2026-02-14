@@ -511,3 +511,86 @@ footer {
   font-size: 13px;
   color: #888;
 }
+==============================
+
+BMI Calculator css
+
+/* Tool Layout */
+
+.tool-header-bmi {
+    text-align: center;
+    padding: 40px 20px 10px;
+}
+
+.tool-container-bmi {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.input-group-bmi {
+    margin-bottom: 15px;
+}
+
+.input-group-bmi label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.input-group-bmi input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button-bmi {
+    width: 100%;
+    padding: 12px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button-bmi:hover {
+    background: #1d4ed8;
+}
+
+.result-box-bmi {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 5px;
+}
+
+.internal-links, .seo-content {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.internal-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.internal-links li {
+    margin-bottom: 8px;
+}
+
+.internal-links a {
+    text-decoration: none;
+    color: #2563eb;
+}
+
+@media (max-width: 480px) {
+    .tool-container {
+        margin: 20px;
+    }
+}
