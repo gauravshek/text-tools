@@ -511,11 +511,11 @@ footer {
   font-size: 13px;
   color: #888;
 }
-==============================
 
-BMI Calculator css
-
-/* Tool Layout */
+/* BMI Calculator css */
+/* =========================
+   BMI CALCULATOR STYLES
+========================= */
 
 .tool-header-bmi {
     text-align: center;
@@ -523,12 +523,12 @@ BMI Calculator css
 }
 
 .tool-container-bmi {
-    max-width: 400px;
+    max-width: 420px;
     margin: 30px auto;
-    padding: 20px;
+    padding: 25px;
     background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
 
 .input-group-bmi {
@@ -537,7 +537,7 @@ BMI Calculator css
 
 .input-group-bmi label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     font-weight: 500;
 }
 
@@ -545,20 +545,21 @@ BMI Calculator css
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 6px;
 }
 
-button-bmi {
+.button-bmi {
     width: 100%;
     padding: 12px;
     background: #2563eb;
-    color: white;
+    color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
+    font-weight: 500;
 }
 
-button-bmi:hover {
+.button-bmi:hover {
     background: #1d4ed8;
 }
 
@@ -566,31 +567,23 @@ button-bmi:hover {
     margin-top: 20px;
     padding: 15px;
     background: #f8fafc;
-    border-radius: 5px;
+    border-radius: 6px;
 }
 
-.internal-links, .seo-content {
+.error-bmi {
+    color: red;
+}
+
+.internal-links-bmi,
+.seo-content-bmi {
     max-width: 800px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-.internal-links ul {
-    list-style: none;
-    padding: 0;
-}
-
-.internal-links li {
-    margin-bottom: 8px;
-}
-
-.internal-links a {
-    text-decoration: none;
-    color: #2563eb;
-}
-
 @media (max-width: 480px) {
-    .tool-container {
+    .tool-container-bmi {
         margin: 20px;
     }
 }
+
