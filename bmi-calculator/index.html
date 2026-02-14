@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>BMI Calculator – Body Mass Index Calculator Online</title>
-    <meta name="description" content="Free BMI Calculator to check your Body Mass Index instantly. Calculate BMI using height and weight. Simple, accurate and mobile friendly tool.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
+  <meta charset="UTF-8">
 
+  <title>BMI Calculator – Check Body Mass Index Online</title>
+  <meta name="description" content="Free BMI calculator to check your Body Mass Index. Enter height and weight to see BMI value and health category instantly.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -24,99 +25,159 @@
       <a href="/json-formatter/">JSON Formatter</a>
       <a href="/gst-calculator/">GST Calculator</a>
       <a href="/emi-calculator/">EMI Calculator</a>
-      <a href="/emi-calculator/" class="active">BMI Calculator</a>
+      <a href="/bmi-calculator/" class="active">BMI Calculator</a>
       <a href="/about/">About</a>
       <a href="/contact/">Contact</a>
     </nav>
   </div>
-  </header>
+</header>
 
-
-
-<section class="tool-container-bmi">
-
-    <div class="input-group-bmi">
-        <label for="height">Height (cm)</label>
-        <input type="number" id="height" placeholder="Enter height in cm">
-    </div>
-
-    <div class="input-group-bmi">
-        <label for="weight">Weight (kg)</label>
-        <input type="number" id="weight" placeholder="Enter weight in kg">
-    </div>
-
-    <button onclick="calculateBMI()" class="button-bmi">
-        Calculate BMI
-    </button>
-
-    <div id="result" class="result-box-bmi"></div>
-
+<!-- HERO -->
+<section class="hero">
+  <h1>BMI Calculator</h1>
+  <p class="seo-text">
+    Calculate your Body Mass Index instantly and know if your weight
+    is underweight, normal, overweight, or obese.
+  </p>
 </section>
 
-<!-- Internal Linking -->
-<section class="internal-links-bmi">
-    <h3>More Useful Tools</h3>
-    <ul>
-        <li><a href="../index.html">Home</a></li>
-    </ul>
+<!-- TOOLS DASHBOARD -->
+<section class="tools-dashboard">
+  <a href="/word-counter/" class="tool-box">
+    <span>📝</span>
+    <h3>Word Counter</h3>
+  </a>
+
+  <a href="/json-formatter/" class="tool-box">
+    <span>🔧</span>
+    <h3>JSON Formatter</h3>
+  </a>
+
+  <a href="/gst-calculator/" class="tool-box">
+    <span>💰</span>
+    <h3>GST Calculator</h3>
+  </a>
+
+  <a href="/emi-calculator/" class="tool-box">
+    <span>🏦</span>
+    <h3>EMI Calculator</h3>
+  </a>
+
+  <a href="/bmi-calculator/" class="tool-box active">
+    <span>⚖️</span>
+    <h3>BMI Calculator</h3>
+  </a>
 </section>
 
-<!-- SEO Content Section -->
-<section class="seo-content-bmi">
-    <h2>What is BMI?</h2>
-    <p>
-        Body Mass Index (BMI) is calculated using your height and weight.
-        It helps determine whether you are underweight, normal, overweight, or obese.
-    </p>
-
-    <h3>BMI Healthy Range</h3>
-    <ul>
-        <li>Below 18.5 – Underweight</li>
-        <li>18.5 – 24.9 – Normal (Healthy)</li>
-        <li>25 – 29.9 – Overweight</li>
-        <li>30 and above – Obese</li>
-    </ul>
+<!-- SEO INTRO -->
+<section class="seo-intro">
+  <p class="seo-text">
+    This free online BMI calculator helps you determine whether your
+    body weight is within a healthy range based on your height.
+    Results are calculated instantly in your browser.
+  </p>
 </section>
 
+<!-- TOOL -->
+<div class="container">
+  <div class="tool-card">
+
+    <h2>Body Mass Index Calculator</h2>
+    <p>Enter your height and weight to calculate BMI.</p>
+
+    <label>Height (cm)</label>
+    <input type="number" id="height" placeholder="e.g. 170">
+
+    <label>Weight (kg)</label>
+    <input type="number" id="weight" placeholder="e.g. 65">
+
+    <button onclick="calculateBMI()">Calculate BMI</button>
+
+    <div class="result" id="result"></div>
+
+  </div>
+</div>
+
+<!-- SEO CONTENT -->
+<section class="seo-section">
+  <h2>What Is BMI?</h2>
+  <p>
+    BMI (Body Mass Index) is a measurement that uses your height and weight
+    to determine whether you are underweight, normal weight, overweight,
+    or obese.
+  </p>
+</section>
+
+<section class="seo-section">
+  <h2>BMI Categories</h2>
+  <ul>
+    <li>Below 18.5 – Underweight</li>
+    <li>18.5 – 24.9 – Normal (Healthy)</li>
+    <li>25 – 29.9 – Overweight</li>
+    <li>30 and above – Obese</li>
+  </ul>
+</section>
+
+<section class="seo-section">
+  <h2>Why Use This BMI Calculator?</h2>
+  <ul>
+    <li>Instant and accurate BMI calculation</li>
+    <li>Mobile friendly and fast</li>
+    <li>No registration required</li>
+    <li>Works on all devices</li>
+  </ul>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>© 2026 <strong>calculate-all</strong> · Free Online Utilities</p>
+  <div class="footer-links">
+    <a href="/privacy-policy/">Privacy Policy</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+  </div>
+</footer>
+
+<!-- SCRIPT -->
 <script>
 function calculateBMI() {
-    let height = parseFloat(document.getElementById("height").value);
-    let weight = parseFloat(document.getElementById("weight").value);
-    let resultBox = document.getElementById("result");
+  const height = parseFloat(document.getElementById("height").value);
+  const weight = parseFloat(document.getElementById("weight").value);
+  const result = document.getElementById("result");
 
-    if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
-        resultBox.innerHTML = "<p class='error-bmi'>Please enter valid height and weight.</p>";
-        return;
-    }
+  if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+    result.innerHTML = "<p class='error'>Please enter valid height and weight.</p>";
+    return;
+  }
 
-    let heightInMeters = height / 100;
-    let bmi = weight / (heightInMeters * heightInMeters);
-    let roundedBMI = bmi.toFixed(2);
+  const heightInMeters = height / 100;
+  const bmi = weight / (heightInMeters * heightInMeters);
+  const roundedBMI = bmi.toFixed(2);
 
-    let category = "";
-    let message = "";
+  let category = "";
+  let message = "";
 
-    if (bmi < 18.5) {
-        category = "Underweight";
-        message = "Your BMI is below the healthy range.";
-    } else if (bmi < 24.9) {
-        category = "Normal (Healthy)";
-        message = "Your BMI is within the healthy range.";
-    } else if (bmi < 29.9) {
-        category = "Overweight";
-        message = "Your BMI is above the recommended range.";
-    } else {
-        category = "Obese";
-        message = "Your BMI is significantly above the healthy range.";
-    }
+  if (bmi < 18.5) {
+    category = "Underweight";
+    message = "Your BMI is below the healthy range.";
+  } else if (bmi < 24.9) {
+    category = "Normal (Healthy)";
+    message = "Your BMI is within the healthy range.";
+  } else if (bmi < 29.9) {
+    category = "Overweight";
+    message = "Your BMI is above the recommended range.";
+  } else {
+    category = "Obese";
+    message = "Your BMI is significantly above the healthy range.";
+  }
 
-    resultBox.innerHTML = `
-        <h3>Your BMI Result</h3>
-        <p><strong>BMI:</strong> ${roundedBMI}</p>
-        <p><strong>Category:</strong> ${category}</p>
-        <hr>
-        <p>${message}</p>
-    `;
+  result.innerHTML = `
+    <h3>Your BMI Result</h3>
+    <p>BMI Value: <strong>${roundedBMI}</strong></p>
+    <p>Category: <strong>${category}</strong></p>
+    <hr>
+    <p>${message}</p>
+  `;
 }
 </script>
 
