@@ -34,8 +34,11 @@
 <div class="container">
   <div class="tool-card">
 
-    <label for="dob">Select Your Date of Birth</label>
+    <label>Date of Birth</label>
     <input type="date" id="dob">
+
+    <label>Age at the Date Of</label>
+    <input type="date" id="ageDate">
 
     <button onclick="calculateAge()">Calculate Age</button>
 
@@ -44,6 +47,7 @@
 
   </div>
 </div>
+
 
 <!-- INTERNAL LINKS -->
 <section class="tools-dashboard">
@@ -90,23 +94,24 @@
 
 <script>
 function calculateAge() {
-  const dobInput = document.getElementById("dob").value;
+  const dobValue = document.getElementById("dob").value;
+  const ageDateValue = document.getElementById("ageDate").value;
   const result = document.getElementById("result");
   const error = document.getElementById("error");
 
   result.innerHTML = "";
   error.innerHTML = "";
 
-  if (!dobInput) {
+  if (!dobValue) {
     error.innerHTML = "Please select your date of birth.";
     return;
   }
 
-  const dob = new Date(dobInput);
-  const today = new Date();
+  const dob = new Date(dobValue);
+  const today = ageDateValue ? new Date(ageDateValue) : new Date();
 
   if (dob > today) {
-    error.innerHTML = "Date of birth cannot be in the future.";
+    error.innerHTML = "Date of birth cannot be after selected date.";
     return;
   }
 
@@ -116,8 +121,8 @@ function calculateAge() {
 
   if (days < 0) {
     months--;
-    const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
-    days += lastMonth.getDate();
+    const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+    days += prevMonth.getDate();
   }
 
   if (months < 0) {
@@ -125,12 +130,33 @@ function calculateAge() {
     months += 12;
   }
 
+  const diffMs = today - dob;
+
+  const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  const totalWeeks = Math.floor(totalDays / 7);
+  const totalMonths = years * 12 + months;
+  const totalHours = Math.floor(diffMs / (1000 * 60 * 60));
+  const totalMinutes = Math.floor(diffMs / (1000 * 60));
+  const totalSeconds = Math.floor(diffMs / 1000);
+
   result.innerHTML = `
-    <strong>Your Age:</strong><br>
-    ${years} Years, ${months} Months, ${days} Days
+    <strong>Your Age:</strong><br><br>
+    ${years} Years, ${months} Months, ${days} Days<br><br>
+    or ${totalMonths} Months<br>
+    or ${totalWeeks} Weeks<br>
+    or ${totalDays.toLocaleString()} Days<br>
+    or ${totalHours.toLocaleString()} Hours<br>
+    or ${totalMinutes.toLocaleString()} Minutes<br>
+    or ${totalSeconds.toLocaleString()} Seconds
   `;
 }
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("ageDate").valueAsDate = new Date();
+});
+</script>
+
 
 </body>
 </html>
