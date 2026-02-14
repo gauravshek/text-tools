@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Age Calculator – Calculate Exact Age in Years, Months & Days</title>
+  <meta name="description" content="Free online Age Calculator. Calculate your exact age in years, months, and days instantly. Simple, fast, and privacy-friendly tool.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <a href="/">calculate-all</a>
+    </div>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Age Calculator</h1>
+  <p>Calculate your exact age in years, months, and days instantly.</p>
+</section>
+
+<!-- TOOL CARD -->
+<div class="container">
+  <div class="tool-card">
+
+    <label for="dob">Select Your Date of Birth</label>
+    <input type="date" id="dob">
+
+    <button onclick="calculateAge()">Calculate Age</button>
+
+    <div class="result" id="result"></div>
+    <div class="error" id="error"></div>
+
+  </div>
+</div>
+
+<!-- INTERNAL LINKS -->
+<section class="tools-dashboard">
+  <a href="/bmi-calculator/" class="tool-box">
+    <span>⚖️</span>
+    <h3>BMI Calculator</h3>
+    <p>Check your Body Mass Index</p>
+  </a>
+
+  <a href="/emi-calculator/" class="tool-box">
+    <span>🏦</span>
+    <h3>EMI Calculator</h3>
+    <p>Loan EMI & interest calculator</p>
+  </a>
+</section>
+
+<!-- SEO CONTENT -->
+<section class="seo-section">
+  <h2>How Does the Age Calculator Work?</h2>
+  <p>
+    This free online age calculator calculates the exact difference between your date of birth and today's date.
+    It shows your current age in years, months, and days. The calculation is performed instantly in your browser,
+    and no data is stored or shared.
+  </p>
+</section>
+
+<footer class="site-footer modern-footer">
+  <div class="footer-top">
+    <strong>calculate-all</strong>
+    <p>Free online calculators & text utilities. Fast. Private. Simple.</p>
+  </div>
+
+  <div class="footer-links">
+    <a href="/privacy-policy/">Privacy Policy</a>
+    <a href="/terms/">Terms</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 calculate-all · All rights reserved
+  </div>
+</footer>
+
+<script>
+function calculateAge() {
+  const dobInput = document.getElementById("dob").value;
+  const result = document.getElementById("result");
+  const error = document.getElementById("error");
+
+  result.innerHTML = "";
+  error.innerHTML = "";
+
+  if (!dobInput) {
+    error.innerHTML = "Please select your date of birth.";
+    return;
+  }
+
+  const dob = new Date(dobInput);
+  const today = new Date();
+
+  if (dob > today) {
+    error.innerHTML = "Date of birth cannot be in the future.";
+    return;
+  }
+
+  let years = today.getFullYear() - dob.getFullYear();
+  let months = today.getMonth() - dob.getMonth();
+  let days = today.getDate() - dob.getDate();
+
+  if (days < 0) {
+    months--;
+    const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+    days += lastMonth.getDate();
+  }
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  result.innerHTML = `
+    <strong>Your Age:</strong><br>
+    ${years} Years, ${months} Months, ${days} Days
+  `;
+}
+</script>
+
+</body>
+</html>
