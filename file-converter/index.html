@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Text & File Converter – Convert to PDF, CSV, Excel, PNG</title>
+  <meta name="description" content="Free online tool to convert text or images into PDF, CSV, Excel, TXT or PNG instantly. No registration required.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- jsPDF Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <style>
+    .converter-area textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+
+    .converter-area input,
+    .converter-area select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .converter-area button {
+      width: 100%;
+      padding: 12px;
+      background: #6c63ff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .converter-area button:hover {
+      background: #574fd6;
+    }
+
+    .success-message {
+      margin-top: 15px;
+      color: green;
+      font-weight: 500;
+    }
+
+    .error-message {
+      margin-top: 15px;
+      color: red;
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <a href="/">calculate-all</a>
+    </div>
+
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Text & File Converter</h1>
+  <p class="seo-text">
+    Convert text or images into PDF, CSV, Excel, TXT or PNG instantly.
+    Free and secure — processed directly in your browser.
+  </p>
+</section>
+
+<!-- TOOL CARD -->
+<div class="container">
+  <div class="tool-card converter-area">
+
+    <h2>Convert Text or Image</h2>
+    <p>Enter text or upload an image, then choose your download format.</p>
+
+    <textarea id="inputText" rows="8" placeholder="Enter your text here..."></textarea>
+
+    <label>Or Upload Image</label>
+    <input type="file" id="imageInput" accept="image/*">
+
+    <label>Select Format</label>
+    <select id="fileType">
+      <option value="pdf">PDF</option>
+      <option value="csv">CSV</option>
+      <option value="txt">TXT</option>
+      <option value="excel">Excel (.xls)</option>
+      <option value="png">PNG Image</option>
+    </select>
+
+    <button onclick="convertFile()">Download File</button>
+
+    <div id="message"></div>
+
+  </div>
+</div>
+
+<!-- SEO SECTION -->
+<section class="seo-section">
+  <h2>Why Use This Converter?</h2>
+  <ul>
+    <li>Fast browser-based conversion</li>
+    <li>No file upload to server</li>
+    <li>Supports text and image to PDF</li>
+    <li>Works on mobile and desktop</li>
+  </ul>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>© 2026 <strong>calculate-all</strong> · Free Online Utilities</p>
+  <div class="footer-links">
+    <a href="/privacy-policy/">Privacy Policy</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+  </div>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+function convertFile() {
+  const text = document.getElementById("inputText").value;
+  const type = document.getElementById("fileType").value;
+  const imageFile = document.getElementById("imageInput").files[0];
+  const message = document.getElementById("message");
+
+  message.innerHTML = "";
+
+  if (!text.trim() && !imageFile) {
+    message.innerHTML = "<div class='error-message'>Please enter text or upload an image.</div>";
+    return;
+  }
+
+  if (type === "txt") {
+    downloadFile(text, "file.txt", "text/plain");
+  }
+
+  if (type === "csv") {
+    downloadFile(text, "file.csv", "text/csv");
+  }
+
+  if (type === "excel") {
+    downloadFile(text, "file.xls", "application/vnd.ms-excel");
+  }
+
+  if (type === "pdf") {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    if (imageFile) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        doc.addImage(e.target.result, "JPEG", 10, 10, 180, 160);
+        doc.save("file.pdf");
+      };
+      reader.readAsDataURL(imageFile);
+    } else {
+      const lines = doc.splitTextToSize(text, 180);
+      doc.text(lines, 10, 10);
+      doc.save("file.pdf");
+    }
+  }
+
+  if (type === "png") {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = 800;
+    canvas.height = 600;
+
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#000000";
+    ctx.font = "18px Arial";
+
+    const lines = text.split("\n");
+    let y = 40;
+
+    lines.forEach(line => {
+      ctx.fillText(line, 20, y);
+      y += 30;
+    });
+
+    const link = document.createElement("a");
+    link.download = "file.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  }
+
+  message.innerHTML = "<div class='success-message'>File downloaded successfully.</div>";
+}
+
+function downloadFile(content, fileName, type) {
+  const blob = new Blob([content], { type: type });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = fileName;
+  link.click();
+}
+</script>
+
+</body>
+</html>
