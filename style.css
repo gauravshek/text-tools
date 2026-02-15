@@ -526,4 +526,14 @@ footer {
   color: #222;
   margin-left: 105px;
 }
+.unit-toggle {
+  margin: 10px 0;
+  display: flex;
+  gap: 20px;
+}
+
+#ftInput {
+  display: flex;
+  gap: 10px;
+}
 
